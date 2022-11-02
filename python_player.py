@@ -19,15 +19,14 @@ import os
 
 def main():
     init()
-    
-    
+      
 
 def init():
 
     title()
     # Initialize anything here
 
-def title(Playlist):
+def title():
     # Initialize main window
     root=Tk()
     root.title('Python Playlist Player')
@@ -37,15 +36,15 @@ def title(Playlist):
     mixer.init()
 
     # Put photos, icon, logo, windows, still need photo
-    Icon_Image = PhotoImage(file="icon.png")
-    root.iconphoto(False,Icon_Image =
-    PhotoImage(file="icon.png"))
+    #Icon_Image = PhotoImage(file="logo.png")
+    #root.iconphoto(False, Icon_Image =
+    #PhotoImage(file="logo.png"))
 
-    Top_Image = PhotoImage(file="background.jpg")
+    Top_Image = PhotoImage(file="background.png")
     Label(root, image=Top_Image, bg="#0f1a2b").pack()
 
     # Logo, still need photo
-    logo_Image = PhotoImage(file="icon.png")
+    logo_Image = PhotoImage(file="logo.png")
     Label(root, image=logo_Image, bg="#0f1a2b").place(x=65, y= 115)
 
     # Menu label, need image
@@ -57,14 +56,12 @@ def title(Playlist):
 
     # Scroll
     Scroll = Scrollbar(Frame_Music)
-    Playlist = Listbox(Frame_Music, width=100, font=("Times new roman",10), bg="#33333", fg="grey",
+    Playlist = Listbox(Frame_Music, width=100, font=("Times new roman",10), bg="#333333", fg="grey",
     selectbackground="lightblue", cursor="hand2", bd=0,
     yscrollcommand=Scroll.set)
     Scroll.config(command=Playlist.yview)
     Scroll.pack(side=RIGHT, fill =Y)
     Playlist.pack(side=LEFT, fill=BOTH)
-
-    
 
     # Have commands/labels tied to buttons here
 
@@ -89,7 +86,7 @@ def title(Playlist):
 
 
 
-def add_music(Playlist):
+def add_music():
     # Ask user for directory/folder of songs
     path = filedialog.askdirectory()
     if path:
@@ -103,10 +100,12 @@ def add_music(Playlist):
     # Create list of songs
 
 
-def play_music(Playlist):
+def play_music():
     Music_Name = Playlist.get(ACTIVE)
     print(Music_Name[0:-4])
     mixer.music.load(Playlist.get(ACTIVE))
     mixer.music.play()
     # Play music of active playlist
     
+
+main()
