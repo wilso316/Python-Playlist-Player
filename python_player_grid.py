@@ -79,7 +79,7 @@ def Next():
     next_one=next_one[0]+1
     #to get the next song 
     temp=songs_list.get(next_one)
-    temp=f'C:\Users\mayaw\Documents\Python-Playlist-Player\songs{temp}'
+    temp=f'C:\Users\mayaw\Documents\Python-Playlist-Player{temp}'
     mixer.music.load(temp)
     mixer.music.play()
     songs_list.selection_clear(0,END)
