@@ -92,6 +92,11 @@ Button_Pause = PhotoImage(file="pause.png")
 Button(root, image=Button_Pause, bg="#0f1a2b", bd=0,
 command=mixer.music.pause).place(x=200, y=500)
 
+# Add songs
+Button_AddSong = PhotoImage(file="addsong.png")
+Button(root, image=Button_AddSong, bg="#0f1a2b", bd=0,
+command=add_music).place(x=200,y=500)
+
 # Skip command
 
 # Select another playlist
