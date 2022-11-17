@@ -21,9 +21,9 @@ import os
 # Initialize main window
 root=Tk()
 root.title('Python Playlist Player')
-root.geometry("1920x1080+290+85")
+root.geometry("1000x900+290+85")
 root.configure(bg= "#0f1a2b")
-root.resizable(False, False)
+root.resizable(True, True)
 mixer.init()
 
 
@@ -47,19 +47,17 @@ def play_music():
     mixer.music.play()
     # Play music of active playlist
     
-# Put photos, icon, logo, windows, still need photo
-#Icon_Image = PhotoImage(file="logo.png")
-#root.iconphoto(False, Icon_Image =
-#PhotoImage(file="logo.png"))
+    
+root.iconbitmap("musicICO.ico")
 
 Top_Image = PhotoImage(file="background.png")
 Label(root, image=Top_Image, bg="#0f1a2b").pack()
 
-# Logo, still need photo
+# Logo
 logo_Image = PhotoImage(file="logo.png")
 Label(root, image=logo_Image, bg="#0f1a2b").place(x=65, y= 115)
 
-# Menu label, need image
+# Menu label
 Menu = PhotoImage(file="menu.png")
 Label(root, image=Menu, bg="#0f1a2b").pack(padx=10, pady=50, side=RIGHT)
 
