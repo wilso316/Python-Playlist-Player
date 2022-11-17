@@ -21,7 +21,7 @@ import os
 # Initialize main window
 root=Tk()
 root.title('Python Playlist Player')
-root.geometry("920x670+290+85")
+root.geometry("1920x1080+290+85")
 root.configure(bg= "#0f1a2b")
 root.resizable(False, False)
 mixer.init()
