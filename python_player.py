@@ -32,7 +32,7 @@ def add_music():
     path = filedialog.askdirectory()
     if path:
         os.chdir(path)
-        songs = os.listdire(path)
+        songs = os.listdir(path)
 
         for song in songs:
             if song.endswith(".mp3"):

@@ -29,7 +29,7 @@ mixer.init()
 
 def add_music():
     # Ask user for directory/folder of songs
-    songs = "C:\Users\mayaw\Documents\Python-Playlist-Player\songs"
+    songs = filedialog.askdirectory("C:\Users\mayaw\Documents\Python-Playlist-Player\songs")
 
     for song in songs:
         if song.endswith(".mp3"):
