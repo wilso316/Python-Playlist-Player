@@ -29,14 +29,11 @@ mixer.init()
 
 def add_music():
     # Ask user for directory/folder of songs
-    path = filedialog.askdirectory()
-    if path:
-        os.chdir(path)
-        songs = os.listdire(path)
+    songs = "C:\Users\mayaw\Documents\Python-Playlist-Player\songs"
 
-        for song in songs:
-            if song.endswith(".mp3"):
-                Playlist.insert(END, song)
+    for song in songs:
+        if song.endswith(".mp3"):
+            Playlist.insert(END, song)
 
     # Create list of songs
 
@@ -51,43 +48,58 @@ def create_widgets():
     # Create main label frame to hold widgets
     main_frame = LabelFrame(
         root,
-        image=Top_Image, bg="#0f1a2b",
+        #image = PhotoImage(file="menu.png"), bg="#0f1a2b",
         text = "Python Music Player",
         relief=GROOVE
     )
-    logo_image = PhotoImage(file="logo.png")
+    entry = Entry(
+        main_frame,
+        width = 10
+    )
 
+    logo_image = PhotoImage(file="logo.png")
+    Button_logo = Button(image = logo_image)
+
+    resume_image = PhotoImage(file="resume.png"),
     Button_Resume = Button(
-        button_image = PhotoImage(file="resume.png"),
+        image = resume_image,
         command =mixer.music.unpause()
     )
 
+    button_image = PhotoImage(file="play.png"),
     Button_Play = Button(
-        button_image = PhotoImage(file="play.png"),
+        image = button_image,
         command =play_music()
     )
 
+    pause_Image = PhotoImage(file="pause.png"),
     Button_Pause = Button(
-        Button_Image = PhotoImage(file="pause.png"),
+        image = pause_Image,
         command=mixer.music.pause()
     )
 
+    addsong_image = PhotoImage(file="addsong.png"),
     Button_AddSong = Button(
-        Button_image = PhotoImage(file="addsong.png"),
+        image = addsong_image,
         command=add_music()
     )
-root.iconbitmap("musicICO.ico")
 
-Top_Image = PhotoImage(file="background.png")
-Label(root, image=Top_Image, bg="#0f1a2b").pack()
+    # Use Grid layout manager to place widgets in frame
+    entry.grid(row=0, column=0)
+    Button_logo.grid(row=0, column=0)
+    Button_Play.grid(row=0, column=1)
+    Button_Pause.grid(row=0, column=2)
+    Button_Resume.grid(row=0, column=3)
+    Button_AddSong.grid(row=0, column=4)
 
-# Logo
-logo_Image = PhotoImage(file="logo.png")
-Label(root, image=logo_Image, bg="#0f1a2b").place(x=65, y= 115)
+    main_frame.grid_configure(padx=20, pady=20)
 
-# Menu label
-Menu = PhotoImage(file="menu.png")
-Label(root, image=Menu, bg="#0f1a2b").pack(padx=10, pady=50, side=RIGHT)
+    for widget in main_frame.winfo_children():
+        widget.grid_configure(padx=10, pady=10)
+
+    entry.focus_set()
+
+
 
 Frame_Music = Frame(root, bd=2, relief = RIDGE)
 Frame_Music.place(x=330, y=350, width=560, height=250)
@@ -101,6 +113,8 @@ Scroll.config(command=Playlist.yview)
 Scroll.pack(side=RIGHT, fill =Y)
 Playlist.pack(side=LEFT, fill=BOTH)
 
+
+create_widgets()
 
 
 
